@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TO9Deals</string>
+    <string name="submit">Submit</string>
+    <string name="enter_your_serial_number">Enter Your Serial Number:</string>
+    <string name="deals">DEALS</string>
+    <string name="your_15_digit_phone_serial_number">Your 15 Digit Phone Serial Number</string>
+    <string name="by_proceeding_you_agree_to_our_terms_of_service_click_here_to_view">By proceeding, you agree to our Terms Of Service. Click here to View.</string>
+    <string name="to9">TO9</string>
 </resources>

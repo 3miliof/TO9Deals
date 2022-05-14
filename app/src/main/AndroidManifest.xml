@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TO9Deals">
         <activity
+            android:name=".TandCActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FeaturedPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
