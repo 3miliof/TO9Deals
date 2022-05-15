@@ -19,16 +19,16 @@ class TandCActivity : AppCompatActivity() {
 
         backButton.setOnClickListener {
 
-            var lastScreen = intent.getStringExtra("cameFrom")
+            val lastScreen = intent.getStringExtra("cameFrom")
 
             if (lastScreen == "Login") {
 
-                var returnIntent = Intent(this, MainActivity::class.java)
+                val returnIntent = Intent(this, MainActivity::class.java)
                 startActivity(returnIntent)
 
             } else if (lastScreen == "Logged In") {
 
-                var returnIntent = Intent(this, FeaturedPageActivity::class.java)
+                val returnIntent = Intent(this, FeaturedPageActivity::class.java)
                 startActivity(returnIntent)
             }
 
