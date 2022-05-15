@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
             if (validInput(submitText)) { //If the input is valid
 
                 //Create the new intent and go to the featured page
-                val FeaturedPageIntent = Intent(this, FeaturedPageActivity::class.java)
-                startActivity(FeaturedPageIntent)
+                val featuredPageIntent = Intent(this, FeaturedPageActivity::class.java)
+                startActivity(featuredPageIntent)
 
             }
         }
@@ -40,8 +40,12 @@ class MainActivity : AppCompatActivity() {
         val tAndCText = findViewById<TextView>(R.id.textTandCs)
 
         tAndCText.setOnClickListener {
-            val tAndCIntent = Intent(this, TandCActivity::class.java)
-            startActivity(tAndCIntent)
+
+            val privacyPolicyIntent = Intent(this, TandCActivity::class.java)
+
+            privacyPolicyIntent.putExtra("cameFrom", "Login")
+
+            startActivity(privacyPolicyIntent)
         }
     }
 
@@ -57,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 return true
 
             } else {
-                //Otherwise, create a snackbar to notify the user of the issue
+                //Otherwise, create a snack bar to notify the user of the issue
                 Snackbar
                     .make(findViewById(R.id.submitButton), "The text needs to be fully numeric", Snackbar.LENGTH_SHORT)
                     .show()
@@ -66,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             }
         } else {
 
-            //Otherwise, create a snackbar to notify the user of the issue
+            //Otherwise, create a snack bar to notify the user of the issue
             Snackbar
                 .make(findViewById(R.id.submitButton), "The number should be 15 digits long", Snackbar.LENGTH_SHORT)
                 .show()
@@ -80,9 +84,9 @@ class MainActivity : AppCompatActivity() {
      * @param textBox - The EditText element that holds the users input on the screen
      * @return A boolean true of false, that verifies all of the characters are digits in the input
      */
-    fun checkFormat(textBox: EditText): Boolean {
+    private fun checkFormat(textBox: EditText): Boolean {
 
-        var textToCheck = textBox.text
+        val textToCheck = textBox.text
 
         //Check all of the characters in the input are numbers.
         return textToCheck.all { char -> char.isDigit() }
