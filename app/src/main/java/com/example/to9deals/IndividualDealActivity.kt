@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import org.w3c.dom.Text
 import kotlin.random.Random
 
 class IndividualDealActivity : AppCompatActivity() {
@@ -52,7 +51,7 @@ class IndividualDealActivity : AppCompatActivity() {
                 promoCode = generateCode()
             }
 
-            findViewById<Button>(R.id.revealCodeButton).text = promoCode
+            revealCodeButton.text = promoCode
 
         }
 
@@ -61,10 +60,10 @@ class IndividualDealActivity : AppCompatActivity() {
     private fun generateCode(): String {
 
         val brandNameNoSpaces = findViewById<TextView>(R.id.BrandName).text.filter {!it.isWhitespace()}
-        val numsNeeded = 20 - brandNameNoSpaces.length
+        val numbsNeeded = 20 - brandNameNoSpaces.length
         var promoCode = brandNameNoSpaces.toString()
 
-        for (loopNum in 0..numsNeeded) {
+        for (loopNum in 0..numbsNeeded) {
 
             promoCode += Random.nextInt(9).toString()
 

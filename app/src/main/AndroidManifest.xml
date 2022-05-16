@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TO9Deals">
         <activity
+            android:name=".TechnologyDealsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShoppingDealsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HospitalityDealsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FitnessDealsActivity"
+            android:exported="false" />
+        <activity
             android:name=".allDealsActivity"
             android:exported="false" />
         <activity

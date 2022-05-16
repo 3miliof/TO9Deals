@@ -16,8 +16,8 @@ class FeaturedPageActivity : AppCompatActivity() {
 
         //Array [[BrandName, BrandDescription], [BrandName, BrandDescription], [BrandName, BrandDescription]]
         val featuredDeals: Array<Array<String>> = arrayOf(arrayOf("FreshGym", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
-            arrayOf("Eaters Pizza", "EatersPizza is one of the leading restaurants in Poole."),
-            arrayOf("BridgeHouse Hotels", "BridgeHouseHotels is one of the leading hotel groups in Bournemouth."))
+            arrayOf("Eaters Pizza", "Eaters Pizza is regarded as the best pizza place in Poole. Having been established in the area for over 50 years, their freshly cooked artisan pizza is a staple of the local area. They are offering 20% off any mid-week booking (Tuesday - Thursday). Click below to receive the code and then redeem it on their website!"),
+            arrayOf("Bridge Hotels", "Bridge Hotels are the leading providers of luxurious hotel destinations across the UK. From swimming pools, to all inclusive getaways, to Michelin star dining, Bridge Hotels have everything covered. With this code, you are able to get a free night stay, with any booking over 1 week long! Click below to receive the code and then redeem it on their website!"))
 
         configureOnClickListeners(featuredDeals)
         updateDealsText(featuredDeals)
