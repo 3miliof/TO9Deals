@@ -1,7 +1,6 @@
 package com.example.to9deals
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,7 +15,7 @@ class FitnessDealsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fitness_deals)
 
-        val brandsTitles = findViewById<ConstraintLayout>(R.id.fitnessBrandsLayout)
+        val brandsTitles = findViewById<ConstraintLayout>(R.id.shoppingBrandsLayout)
         val fitnessBrands: Array<Array<String>> = arrayOf(arrayOf("FreshGym", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
             arrayOf("PureGym", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
             arrayOf("GymLife", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
@@ -61,7 +60,7 @@ class FitnessDealsActivity : AppCompatActivity() {
         }
 
         //Set an onclick listener for the back button
-        var backButton = findViewById<Button>(R.id.fitnessDealsBack)
+        var backButton = findViewById<Button>(R.id.shoppingDealsBack)
 
         backButton.setOnClickListener {
 

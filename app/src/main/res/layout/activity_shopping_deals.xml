@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FitnessDealsActivity">
+    tools:context=".ShoppingDealsActivity">
 
     <Button
         android:id="@+id/shoppingDealsBack"
@@ -21,7 +21,7 @@
         android:layout_width="225dp"
         android:layout_height="58dp"
         android:layout_marginTop="24dp"
-        android:text="@string/fitness_deals"
+        android:text="@string/shopping_deals"
         android:textAlignment="center"
         app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +67,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/fitnessBrand1"
                 app:layout_constraintEnd_toEndOf="@+id/fitnessBrand1"
                 app:layout_constraintStart_toStartOf="@+id/fitnessBrand1"
-                app:layout_constraintTop_toTopOf="@+id/fitnessBrand1" />
+                app:layout_constraintTop_toTopOf="@+id/fitnessBrand1"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
 
 
             <ImageView
@@ -121,7 +122,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/fitnessBrand3"
                 app:layout_constraintEnd_toEndOf="@+id/fitnessBrand3"
                 app:layout_constraintStart_toStartOf="@+id/fitnessBrand3"
-                app:layout_constraintTop_toTopOf="@+id/fitnessBrand3" />
+                app:layout_constraintTop_toTopOf="@+id/fitnessBrand3"
+                tools:ignore="TextContrastCheck" />
 
             <ImageView
                 android:id="@+id/fitnessBrand4"
@@ -157,7 +159,8 @@
                 android:contentDescription="@string/fitness_brand_5_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fitnessBrand4" />
+                app:layout_constraintTop_toBottomOf="@+id/fitnessBrand4"
+                tools:ignore="ImageContrastCheck" />
 
 
             <TextView
@@ -172,7 +175,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/fitnessBrand5"
                 app:layout_constraintEnd_toEndOf="@+id/fitnessBrand5"
                 app:layout_constraintStart_toStartOf="@+id/fitnessBrand5"
-                app:layout_constraintTop_toTopOf="@+id/fitnessBrand5" />
+                app:layout_constraintTop_toTopOf="@+id/fitnessBrand5"
+                tools:ignore="TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

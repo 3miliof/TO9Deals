@@ -46,6 +46,15 @@ class IndividualDealActivity : AppCompatActivity() {
                 val returnIntent = Intent(this, FitnessDealsActivity::class.java)
                 startActivity(returnIntent)
 
+            } else if (returnDestination == "hospitalityPage") {
+
+                val returnIntent = Intent(this, HospitalityDealsActivity::class.java)
+                startActivity(returnIntent)
+            }else if (returnDestination == "shoppingPage") {
+
+                val returnIntent = Intent( this, ShoppingDealsActivity::class.java)
+                startActivity(returnIntent)
+
             }
 
         }
