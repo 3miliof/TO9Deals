@@ -15,18 +15,19 @@ class FeaturedPageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_featured_page)
 
         //Array [[BrandName, BrandDescription], [BrandName, BrandDescription], [BrandName, BrandDescription]]
-        val featuredDeals: Array<Array<String>> = arrayOf(arrayOf("Featured Brand 1", "Featured Brand 1 is one of the leading gym in the world."),
-            arrayOf("Featured Brand 2", "Featured Brand 2 is the of the leading restaurants in the world."),
-            arrayOf("Featured Brand 3", "Featured Brand 3 is the of the leading hotels in the world."))
+        val featuredDeals: Array<Array<String>> = arrayOf(arrayOf("FreshGym", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
+            arrayOf("Eaters Pizza", "EatersPizza is one of the leading restaurants in Poole."),
+            arrayOf("BridgeHouse Hotels", "BridgeHouseHotels is one of the leading hotel groups in Bournemouth."))
 
         configureOnClickListeners(featuredDeals)
-
+        updateDealsText(featuredDeals)
     }
 
 
     /**
      * Function to configure the onclick listeners for the Brands and Privacy Policy buttons on the
      * page.
+     * @param featuredDeals - The Array of arrays containing information on each of the featured deals.
      */
     private fun configureOnClickListeners(featuredDeals: Array<Array<String>>) {
 
@@ -84,7 +85,23 @@ class FeaturedPageActivity : AppCompatActivity() {
 
         }
 
+    }
 
+    /**
+     * Function to update the brand titles on each of the famous brands.
+     * @param featuredDeals - Array of arrays holding the information on the featured deals to display
+     */
+    private fun updateDealsText(featuredDeals: Array<Array<String>>) {
+
+        //Get the widget objects for each title on screen
+        val featuredOneText = findViewById<TextView>(R.id.featuredOneText)
+        val featuredTwoText = findViewById<TextView>(R.id.featuredTwoText)
+        val featuredThreeText = findViewById<TextView>(R.id.featuredThreeText)
+
+        //Update the title of each brand to the stored name
+        featuredOneText.text = featuredDeals[0][0]
+        featuredTwoText.text = featuredDeals[1][0]
+        featuredThreeText.text = featuredDeals[2][0]
 
     }
 }

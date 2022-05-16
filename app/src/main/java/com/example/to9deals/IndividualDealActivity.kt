@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import org.w3c.dom.Text
+import kotlin.random.Random
 
 class IndividualDealActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +24,6 @@ class IndividualDealActivity : AppCompatActivity() {
 
         dealTitle.text = intent.getStringExtra("BrandName")
         dealDesc.text = intent.getStringExtra("BrandDesc")
-
 
     }
 
@@ -45,7 +45,32 @@ class IndividualDealActivity : AppCompatActivity() {
 
         }
 
+        var promoCode = ""
+        revealCodeButton.setOnClickListener {
 
+            if (promoCode == "") {
+                promoCode = generateCode()
+            }
+
+            findViewById<Button>(R.id.revealCodeButton).text = promoCode
+
+        }
+
+    }
+
+    private fun generateCode(): String {
+
+        val brandNameNoSpaces = findViewById<TextView>(R.id.BrandName).text.filter {!it.isWhitespace()}
+        val numsNeeded = 20 - brandNameNoSpaces.length
+        var promoCode = brandNameNoSpaces.toString()
+
+        for (loopNum in 0..numsNeeded) {
+
+            promoCode += Random.nextInt(9).toString()
+
+        }
+
+        return promoCode
     }
 
 
