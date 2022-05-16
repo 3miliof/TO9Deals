@@ -34,27 +34,36 @@ class IndividualDealActivity : AppCompatActivity() {
 
         backButton.setOnClickListener {
 
-            val returnDestination = intent.getStringExtra("cameFrom")
+            when (intent.getStringExtra("cameFrom")) {
+                "FeaturedPage" -> {
 
-            if (returnDestination == "FeaturedPage") {
+                    val returnIntent = Intent(this, FeaturedPageActivity::class.java)
+                    startActivity(returnIntent)
 
-                val returnIntent = Intent(this, FeaturedPageActivity::class.java)
-                startActivity(returnIntent)
+                }
+                "fitnessPage" -> {
 
-            } else if (returnDestination == "fitnessPage") {
+                    val returnIntent = Intent(this, FitnessDealsActivity::class.java)
+                    startActivity(returnIntent)
 
-                val returnIntent = Intent(this, FitnessDealsActivity::class.java)
-                startActivity(returnIntent)
+                }
+                "hospitalityPage" -> {
 
-            } else if (returnDestination == "hospitalityPage") {
+                    val returnIntent = Intent(this, HospitalityDealsActivity::class.java)
+                    startActivity(returnIntent)
+                }
+                "shoppingPage" -> {
 
-                val returnIntent = Intent(this, HospitalityDealsActivity::class.java)
-                startActivity(returnIntent)
-            }else if (returnDestination == "shoppingPage") {
+                    val returnIntent = Intent( this, ShoppingDealsActivity::class.java)
+                    startActivity(returnIntent)
 
-                val returnIntent = Intent( this, ShoppingDealsActivity::class.java)
-                startActivity(returnIntent)
+                }
+                "technologyPage" -> {
 
+                    val returnIntent = Intent( this, TechnologyDealsActivity::class.java)
+                    startActivity(returnIntent)
+
+                }
             }
 
         }

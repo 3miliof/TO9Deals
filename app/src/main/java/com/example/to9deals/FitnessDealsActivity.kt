@@ -30,7 +30,7 @@ class FitnessDealsActivity : AppCompatActivity() {
 
     /**
      * Function to assign onclick listeners dynamically to the brand objects created.
-     * @param brandsTitles - The constraintlayout holding all of the brand ImageViews and TextViews
+     * @param brandsTitles - The constraint layout holding all of the brand ImageViews and TextViews
      * @param fitnessBrands - The array of arrays holding the information for each brand, to be displayed on the individual pages.
      */
     private fun configureOnClickListeners(brandsTitles: ConstraintLayout, fitnessBrands: Array<Array<String>>) {
@@ -45,7 +45,7 @@ class FitnessDealsActivity : AppCompatActivity() {
 
                 component.setOnClickListener {
 
-                    var dealIntent = Intent(this, IndividualDealActivity::class.java)
+                    val dealIntent = Intent(this, IndividualDealActivity::class.java)
                     dealIntent.putExtra("cameFrom", "fitnessPage")
                     dealIntent.putExtra("BrandName",  fitnessBrands[getBrandIndex(component)][0])
                     dealIntent.putExtra("BrandDesc", fitnessBrands[getBrandIndex(component)][1])
@@ -60,11 +60,11 @@ class FitnessDealsActivity : AppCompatActivity() {
         }
 
         //Set an onclick listener for the back button
-        var backButton = findViewById<Button>(R.id.shoppingDealsBack)
+        val backButton = findViewById<Button>(R.id.shoppingDealsBack)
 
         backButton.setOnClickListener {
 
-            var backToAllDeals = Intent(this, allDealsActivity::class.java)
+            val backToAllDeals = Intent(this, allDealsActivity::class.java)
             startActivity(backToAllDeals)
 
         }
@@ -73,13 +73,13 @@ class FitnessDealsActivity : AppCompatActivity() {
 
     /**
      * Function used to get the index of the corresponding brand information in the array of brands
-     * @param component - The component that the brand information will be dispalyed on
+     * @param component - The component that the brand information will be displayed on
      * @return An integer value corresponding to the place of the brand information in the fitnessBrands array
      */
     private fun getBrandIndex(component : ImageView): Int {
 
-        //Filted the content description to find which number brand it is
-        var digit = component.contentDescription.filter {it.isDigit()}
+        //Filter the content description to find which number brand it is
+        val digit = component.contentDescription.filter {it.isDigit()}
 
         //Return the integer value, altered to correspond to the array of brand information
         return Integer.parseInt(digit.toString())-1
@@ -88,7 +88,7 @@ class FitnessDealsActivity : AppCompatActivity() {
 
     /**
      * Function used to get the brand titles for each brand stores and display them on the screen
-     * @param brandsTitles - The constraintlayout holding all of the brand ImageViews and TextViews
+     * @param brandsTitles - The constraint layout holding all of the brand ImageViews and TextViews
      * @param fitnessBrands - The array of arrays holding the information for each brand, to be displayed on the individual pages.
      */
     private fun loadBrandDetails(brandsTitles: ConstraintLayout, fitnessBrands: Array<Array<String>>) {

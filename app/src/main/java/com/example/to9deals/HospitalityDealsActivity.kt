@@ -20,7 +20,7 @@ class HospitalityDealsActivity : AppCompatActivity() {
             arrayOf("Gordon Ramsay", "Gordon Ramsay is a famous celebrity chef, his high end michelin star restaurants being some of the most well known in the country. Use this code to enjoy a tasting experience for two. Quote your code on booking through the restaurant in order for it to be redeemed."),
             arrayOf("Pizza Express", "Bringing a dining table to life with great food, great music and great company. Lifting glasses and spirits. Getting smiles on faces and sauce on t-shirts. That's what Pizza Express is about. Use this code to get 30% off any large pizza!"),
             arrayOf("JD Wetherspoon", "The company aims to provide customers with good-quality food and drinks, served by well-trained and friendly staff, at reasonable prices. The pubs are individually designed, bringing you a fresh experience wherever you go! This code gets you 3 small plates for $10!"),
-            arrayOf("Dominos", "Dominos is the largest pizza delivery service in the UK! Bringing fresh hot pizza right to your door! From piza to sides, to desserts, Domino's have it all! This code allows you to get 30% off any non-deal orders. Get your Pizza Now!"))
+            arrayOf("Dominos", "Dominos is the largest pizza delivery service in the UK! Bringing fresh hot pizza right to your door! From pizza to sides, to desserts, Domino's have it all! This code allows you to get 30% off any non-deal orders. Get your Pizza Now!"))
 
 
         loadBrandDetails(brandsTitles, hospitalityBrands)
