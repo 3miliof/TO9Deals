@@ -30,4 +30,10 @@
     <string name="hospitality_deals">Hospitality Deals</string>
     <string name="shopping_deals">Shopping Deals</string>
     <string name="technology_deals">Technology Deals</string>
+    <string name="fitness_brand_2_image">Fitness brand 2 Image</string>
+    <string name="fitness_brand_1_image">Fitness Brand 1 Image</string>
+    <string name="fitness_brand_3_image">Fitness Brand 3 Image</string>
+    <string name="fitness_brand_4_image">Fitness Brand 4 Image</string>
+    <string name="fitness_brand_5_image">Fitness Brand 5 Image</string>
+    <string name="fitness_brand">Fitness Brand</string>
 </resources>

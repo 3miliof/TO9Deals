@@ -8,6 +8,7 @@ import android.widget.TextView
 import kotlin.random.Random
 
 class IndividualDealActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_individual_deal)
@@ -38,6 +39,11 @@ class IndividualDealActivity : AppCompatActivity() {
             if (returnDestination == "FeaturedPage") {
 
                 val returnIntent = Intent(this, FeaturedPageActivity::class.java)
+                startActivity(returnIntent)
+
+            } else if (returnDestination == "fitnessPage") {
+
+                val returnIntent = Intent(this, FitnessDealsActivity::class.java)
                 startActivity(returnIntent)
 
             }
