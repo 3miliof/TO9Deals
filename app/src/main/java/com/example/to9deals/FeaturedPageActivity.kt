@@ -84,7 +84,7 @@ class FeaturedPageActivity : AppCompatActivity() {
 
         viewMoreButton.setOnClickListener {
 
-            val allDealsIntent = Intent(this, allDealsActivity::class.java)
+            val allDealsIntent = Intent(this, AllDealsActivity::class.java)
             startActivity(allDealsIntent)
 
         }
@@ -117,9 +117,9 @@ class FeaturedPageActivity : AppCompatActivity() {
 
             if (component is ImageView) {
 
-                var filename = formatBrandName(imageViewCounter, featuredDeals)
+                val filename = formatBrandName(imageViewCounter, featuredDeals)
 
-                try { //Try to set the background image to the imageView, if there isnt one then keep looping
+                try { //Try to set the background image to the imageView, if there isn't one then keep looping
 
                     component.setImageResource( //Set the background image as the formatted file name
                         resources.getIdentifier(
@@ -144,13 +144,13 @@ class FeaturedPageActivity : AppCompatActivity() {
      * Function to format the name of the brand to the format necessary to access the drawable resource
      * to display an image
      * @param counter - The index of the brand needing to be displayed on the imageview, In the hospitalitybrand Array
-     * @param HospitalityBrands - The array of brands to access
-     * @return the lowercase, whitespace removed brandname, inline with the drawable naming format
+     * @param featuredDeals - The array of brands to access
+     * @return the lowercase, whitespace removed brand name, inline with the drawable naming format
      */
     private fun formatBrandName(counter : Int, featuredDeals: Array<Array<String>>): String {
 
         //Remove any spaces from the hospitality brand name
-        var brandName = featuredDeals[counter][0].filter { !it.isWhitespace() }
+        val brandName = featuredDeals[counter][0].filter { !it.isWhitespace() }
 
         //Make it lower case
         return brandName.lowercase()

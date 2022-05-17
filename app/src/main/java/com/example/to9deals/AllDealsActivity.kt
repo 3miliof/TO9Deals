@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 
-class allDealsActivity : AppCompatActivity() {
+class AllDealsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_deals)

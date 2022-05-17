@@ -22,7 +22,7 @@
             android:name=".FitnessDealsActivity"
             android:exported="false" />
         <activity
-            android:name=".allDealsActivity"
+            android:name=".AllDealsActivity"
             android:exported="false" />
         <activity
             android:name=".IndividualDealActivity"

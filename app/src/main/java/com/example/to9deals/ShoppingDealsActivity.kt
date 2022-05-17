@@ -20,7 +20,7 @@ class ShoppingDealsActivity : AppCompatActivity() {
         val brandsTitles = findViewById<ConstraintLayout>(R.id.shoppingBrandsLayout)
         val shoppingBrands: Array<Array<String>> = arrayOf(arrayOf("JD Sports", "To dare is todo. Enjoy £10 off any product over £34.99 PLUS free delivery nationwide. What are you waiting for?"),
             arrayOf("Nike", "Buy our products, Just do it. Enjoy 25% discount on selected sports ranges using the discount code below. Just. Do. It."),
-            arrayOf("Primark", "All of our clothing is 100% high quality, fair priced goods. Use our discount code down below to recieve a free makeup set including cruelty free lipstick, eyeliner and set of bath bombs."),
+            arrayOf("Primark", "All of our clothing is 100% high quality, fair priced goods. Use our discount code down below to receive a free makeup set including cruelty free lipstick, eyeliner and set of bath bombs."),
             arrayOf("Ralph Lauren", "Enjoy £20 off orders over £99.99 on our website. Buy it, its made to be worn. Code also valid over seasonal periods. terms and conditions apply."),
             arrayOf("River Island", "Enjoy exclusive discounts of all our summer collection at riverIsland. Discounts of up to 75% on selected ranges and colours. Look fresh this summer with River Island"))
 
@@ -66,7 +66,7 @@ class ShoppingDealsActivity : AppCompatActivity() {
 
         backButton.setOnClickListener {
 
-            val backToAllDeals = Intent(this, allDealsActivity::class.java)
+            val backToAllDeals = Intent(this, AllDealsActivity::class.java)
             startActivity(backToAllDeals)
 
         }
@@ -107,9 +107,9 @@ class ShoppingDealsActivity : AppCompatActivity() {
 
             if (component is ImageView) {
 
-                var filename = formatBrandName(imageViewCounter, shoppingBrands)
+                val filename = formatBrandName(imageViewCounter, shoppingBrands)
 
-                try { //Try to set the background image to the imageView, if there isnt one then keep looping
+                try { //Try to set the background image to the imageView, if there isn't one then keep looping
 
                     component.setImageResource( //Set the background image as the formatted file name
                         resources.getIdentifier(
@@ -132,12 +132,12 @@ class ShoppingDealsActivity : AppCompatActivity() {
      * to display an image
      * @param counter - The index of the brand needing to be displayed on the imageview, In the hospitalitybrand Array
      * @param shoppingBrands - The array of brands to access
-     * @return the lowercase, whitespace removed brandname, inline with the drawable naming format
+     * @return the lowercase, whitespace removed brand name, inline with the drawable naming format
      */
     private fun formatBrandName(counter : Int, shoppingBrands: Array<Array<String>>): String {
 
         //Remove any spaces from the hospitality brand name
-        var brandName = shoppingBrands[counter][0].filter { !it.isWhitespace() }
+        val brandName = shoppingBrands[counter][0].filter { !it.isWhitespace() }
 
         //Make it lower case
         return brandName.lowercase()

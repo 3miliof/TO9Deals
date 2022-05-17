@@ -65,7 +65,7 @@ class TechnologyDealsActivity : AppCompatActivity() {
 
         backButton.setOnClickListener {
 
-            val backToAllDeals = Intent(this, allDealsActivity::class.java)
+            val backToAllDeals = Intent(this, AllDealsActivity::class.java)
             startActivity(backToAllDeals)
 
         }
@@ -106,9 +106,9 @@ class TechnologyDealsActivity : AppCompatActivity() {
 
             if (component is ImageView) {
 
-                var filename = formatBrandName(imageViewCounter, technologyBrands)
+                val filename = formatBrandName(imageViewCounter, technologyBrands)
 
-                try { //Try to set the background image to the imageView, if there isnt one then keep looping
+                try { //Try to set the background image to the imageView, if there isn't one then keep looping
 
                     component.setImageResource( //Set the background image as the formatted file name
                         resources.getIdentifier(
@@ -131,12 +131,12 @@ class TechnologyDealsActivity : AppCompatActivity() {
      * to display an image
      * @param counter - The index of the brand needing to be displayed on the imageview, In the hospitalitybrand Array
      * @param technologyBrands - The array of brands to access
-     * @return the lowercase, whitespace removed brandname, inline with the drawable naming format
+     * @return the lowercase, whitespace removed brand name, inline with the drawable naming format
      */
     private fun formatBrandName(counter : Int, technologyBrands: Array<Array<String>>): String {
 
         //Remove any spaces from the hospitality brand name
-        var brandName = technologyBrands[counter][0].filter { !it.isWhitespace() }
+        val brandName = technologyBrands[counter][0].filter { !it.isWhitespace() }
 
         //Make it lower case
         return brandName.lowercase()

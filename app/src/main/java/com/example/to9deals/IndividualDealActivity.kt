@@ -1,7 +1,6 @@
 package com.example.to9deals
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -32,7 +31,7 @@ class IndividualDealActivity : AppCompatActivity() {
 
     private fun loadBrandImage(brandName: String) {
 
-        var name = formatBrandName(brandName)
+        val name = formatBrandName(brandName)
 
         val brandImageView = findViewById<ImageView>(R.id.individualBrandImage)
 
@@ -42,8 +41,7 @@ class IndividualDealActivity : AppCompatActivity() {
     /**
      * Function to format the name of the brand to the format necessary to access the drawable resource
      * to display an image
-     * @param counter - The index of the brand needing to be displayed on the imageview, In the hospitalitybrand Array
-     * @return the lowercase, whitespace removed brandname, inline with the drawable naming format
+     * @return the lowercase, whitespace removed brand name, inline with the drawable naming format
      */
     private fun formatBrandName(brandName: String): String {
 
