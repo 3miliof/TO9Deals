@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.iterator
+import java.lang.Exception
 
 class FeaturedPageActivity : AppCompatActivity() {
 
@@ -15,12 +18,13 @@ class FeaturedPageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_featured_page)
 
         //Array [[BrandName, BrandDescription], [BrandName, BrandDescription], [BrandName, BrandDescription]]
-        val featuredDeals: Array<Array<String>> = arrayOf(arrayOf("FreshGym", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
-            arrayOf("Eaters Pizza", "Eaters Pizza is regarded as the best pizza place in Poole. Having been established in the area for over 50 years, their freshly cooked artisan pizza is a staple of the local area. They are offering 20% off any mid-week booking (Tuesday - Thursday). Click below to receive the code and then redeem it on their website!"),
-            arrayOf("Bridge Hotels", "Bridge Hotels are the leading providers of luxurious hotel destinations across the UK. From swimming pools, to all inclusive getaways, to Michelin star dining, Bridge Hotels have everything covered. With this code, you are able to get a free night stay, with any booking over 1 week long! Click below to receive the code and then redeem it on their website!"))
+        val featuredDeals: Array<Array<String>> = arrayOf(arrayOf("FreshGym", "Get hench at freshGym. Enjoy £0 signing on fee and your first month free! Whats your excuse now, punk? Get huge today at FreshGym"),
+            arrayOf("Gordon Ramsay", "Gordon Ramsay is a famous celebrity chef, his high end michelin star restaurants being some of the most well known in the country. Use this code to enjoy a tasting experience for two. Quote your code on booking through the restaurant in order for it to be redeemed."),
+            arrayOf("River Island", "Enjoy exclusive discounts of all our summer collection at riverIsland. Discounts of up to 75% on selected ranges and colours. Look fresh this summer with River Island"))
 
         configureOnClickListeners(featuredDeals)
         updateDealsText(featuredDeals)
+        loadBrandImages(featuredDeals)
     }
 
 
@@ -104,4 +108,56 @@ class FeaturedPageActivity : AppCompatActivity() {
         featuredThreeText.text = featuredDeals[2][0]
 
     }
+
+    private fun loadBrandImages(featuredDeals : Array<Array<String>>) {
+
+        var imageViewCounter = 0
+
+        for (component in findViewById<ConstraintLayout>(R.id.FeaturedConstraintLayout)) {
+
+            if (component is ImageView) {
+
+                var filename = formatBrandName(imageViewCounter, featuredDeals)
+
+                try { //Try to set the background image to the imageView, if there isnt one then keep looping
+
+                    component.setImageResource( //Set the background image as the formatted file name
+                        resources.getIdentifier(
+                            filename,
+                            "drawable",
+                            packageName
+                        )
+                    )
+                } catch (e: Exception) {
+
+                }
+
+                imageViewCounter += 1
+
+            }
+
+        }
+
+    }
+
+    /**
+     * Function to format the name of the brand to the format necessary to access the drawable resource
+     * to display an image
+     * @param counter - The index of the brand needing to be displayed on the imageview, In the hospitalitybrand Array
+     * @param HospitalityBrands - The array of brands to access
+     * @return the lowercase, whitespace removed brandname, inline with the drawable naming format
+     */
+    private fun formatBrandName(counter : Int, featuredDeals: Array<Array<String>>): String {
+
+        //Remove any spaces from the hospitality brand name
+        var brandName = featuredDeals[counter][0].filter { !it.isWhitespace() }
+
+        //Make it lower case
+        return brandName.lowercase()
+
+
+    }
+
+
+
 }

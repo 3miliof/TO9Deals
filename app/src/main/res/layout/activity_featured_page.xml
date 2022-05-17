@@ -19,94 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/featuredOne"
-        android:layout_width="303dp"
-        android:layout_height="112dp"
-        android:layout_marginTop="28dp"
-        android:contentDescription="@string/brand_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/featuredTitle"
-        android:background="@color/teal_700"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/featuredTwo"
-        android:layout_width="303dp"
-        android:layout_height="112dp"
-        android:layout_marginTop="28dp"
-        android:contentDescription="@string/brand_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/featuredOne"
-        android:background="@color/purple_500" />
-
-    <ImageView
-        android:id="@+id/featuredThree"
-        android:layout_width="303dp"
-        android:layout_height="112dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/brand_image"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/featuredTwo"
-        android:background="#294783" />
-
-    <TextView
-        android:id="@+id/featuredTwoText"
-        android:layout_width="191dp"
-        android:layout_height="40dp"
-        android:text="@string/featured_brand_2"
-        android:textAlignment="center"
-        android:textColor="#8C9EFF"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/featuredTwo"
-        app:layout_constraintEnd_toEndOf="@+id/featuredTwo"
-        app:layout_constraintStart_toStartOf="@+id/featuredTwo"
-        app:layout_constraintTop_toTopOf="@+id/featuredTwo" />
-
-    <TextView
-        android:id="@+id/featuredOneText"
-        android:layout_width="191dp"
-        android:layout_height="40dp"
-        android:text="@string/featured_brand_1"
-        android:textAlignment="center"
-        android:textColor="#263238"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/featuredOne"
-        app:layout_constraintEnd_toEndOf="@+id/featuredOne"
-        app:layout_constraintStart_toStartOf="@+id/featuredOne"
-        app:layout_constraintTop_toTopOf="@+id/featuredOne" />
-
-    <TextView
-        android:id="@+id/featuredThreeText"
-        android:layout_width="191dp"
-        android:layout_height="40dp"
-        android:text="@string/featured_brand_3"
-        android:textAlignment="center"
-        android:textColor="#42A5F5"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@+id/featuredThree"
-        app:layout_constraintEnd_toEndOf="@+id/featuredThree"
-        app:layout_constraintStart_toStartOf="@+id/featuredThree"
-        app:layout_constraintTop_toTopOf="@+id/featuredThree" />
-
     <Button
         android:id="@+id/viewMoreButton"
         android:layout_width="266dp"
         android:layout_height="66dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/view_other_brands"
         app:layout_constraintBottom_toTopOf="@+id/privacyPolicy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/featuredThree"
-        app:layout_constraintVertical_bias="0.039" />
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/privacyPolicy"
@@ -120,4 +42,104 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/FeaturedConstraintLayout"
+        android:layout_width="303dp"
+        android:layout_height="433dp"
+        app:layout_constraintBottom_toTopOf="@+id/viewMoreButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/featuredTitle">
+
+        <ImageView
+            android:id="@+id/featuredOne"
+            android:layout_width="303dp"
+            android:layout_height="112dp"
+            android:background="@color/teal_700"
+            android:contentDescription="@string/brand_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/featuredOneText"
+            android:layout_width="191dp"
+            android:layout_height="40dp"
+            android:text="@string/featured_brand_1"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/featuredOne"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/featuredOne"
+            app:layout_constraintTop_toTopOf="@+id/featuredOne" />
+
+        <ImageView
+            android:id="@+id/featuredTwo"
+            android:layout_width="303dp"
+            android:layout_height="112dp"
+            android:background="@color/purple_500"
+            android:contentDescription="@string/brand_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/featuredThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/featuredOne"
+            app:layout_constraintVertical_bias="0.494" />
+
+        <TextView
+            android:id="@+id/featuredTwoText"
+            android:layout_width="191dp"
+            android:layout_height="40dp"
+            android:text="@string/featured_brand_2"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/featuredTwo"
+            app:layout_constraintEnd_toEndOf="@+id/featuredTwo"
+            app:layout_constraintStart_toStartOf="@+id/featuredTwo"
+            app:layout_constraintTop_toTopOf="@+id/featuredTwo" />
+
+        <ImageView
+            android:id="@+id/featuredThree"
+            android:layout_width="303dp"
+            android:layout_height="112dp"
+            android:background="#294783"
+            android:contentDescription="@string/brand_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/featuredThreeText"
+            android:layout_width="191dp"
+            android:layout_height="40dp"
+            android:text="@string/featured_brand_3"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/featuredThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/featuredThree"
+            app:layout_constraintTop_toTopOf="@+id/featuredThree" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.iterator
+import java.lang.Exception
 
 class ShoppingDealsActivity : AppCompatActivity() {
 
@@ -17,11 +18,11 @@ class ShoppingDealsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_shopping_deals)
 
         val brandsTitles = findViewById<ConstraintLayout>(R.id.shoppingBrandsLayout)
-        val shoppingBrands: Array<Array<String>> = arrayOf(arrayOf("Burger King", "Kurger Bing is one of the largest fast food chains in the world. With stores across every continent they continue to provide fast and tasty food to their customers. This code entitles you to a free large drink with any single burger."),
-            arrayOf("Gordon Ramsay", "Gordon Ramsay is a famous celebrity chef, his high end michelin star restaurants being some of the most well known in the country. Use this code to enjoy a tasting experience for two. Quote your code on booking through the restaurant in order for it to be redeemed."),
-            arrayOf("Pizza Express", "Bringing a dining table to life with great food, great music and great company. Lifting glasses and spirits. Getting smiles on faces and sauce on t-shirts. That's what Pizza Express is about. Use this code to get 30% off any large pizza!"),
-            arrayOf("JD Wetherspoon", "The company aims to provide customers with good-quality food and drinks, served by well-trained and friendly staff, at reasonable prices. The pubs are individually designed, bringing you a fresh experience wherever you go! This code gets you 3 small plates for $10!"),
-            arrayOf("Dominos", "Dominos is the largest pizza delivery service in the UK! Bringing fresh hot pizza right to your door! From pizza to sides, to desserts, Domino's have it all! This code allows you to get 30% off any non-deal orders. Get your Pizza Now!"))
+        val shoppingBrands: Array<Array<String>> = arrayOf(arrayOf("JD Sports", "To dare is todo. Enjoy £10 off any product over £34.99 PLUS free delivery nationwide. What are you waiting for?"),
+            arrayOf("Nike", "Buy our products, Just do it. Enjoy 25% discount on selected sports ranges using the discount code below. Just. Do. It."),
+            arrayOf("Primark", "All of our clothing is 100% high quality, fair priced goods. Use our discount code down below to recieve a free makeup set including cruelty free lipstick, eyeliner and set of bath bombs."),
+            arrayOf("Ralph Lauren", "Enjoy £20 off orders over £99.99 on our website. Buy it, its made to be worn. Code also valid over seasonal periods. terms and conditions apply."),
+            arrayOf("River Island", "Enjoy exclusive discounts of all our summer collection at riverIsland. Discounts of up to 75% on selected ranges and colours. Look fresh this summer with River Island"))
 
 
         loadBrandDetails(brandsTitles, shoppingBrands)
@@ -94,17 +95,53 @@ class ShoppingDealsActivity : AppCompatActivity() {
      */
     private fun loadBrandDetails(brandsTitles: ConstraintLayout, shoppingBrands: Array<Array<String>>) {
 
-        var counter = 0
-
+        var textViewCounter = 0
+        var imageViewCounter = 0
         for (component in brandsTitles) {
 
             if (component is TextView) {
 
-                component.text = shoppingBrands[counter][0] //Set the text value to what is stored in the array
-                counter += 1
+                component.text = shoppingBrands[textViewCounter][0] //Set the text value to what is stored in the array
+                textViewCounter += 1
             }
 
+            if (component is ImageView) {
+
+                var filename = formatBrandName(imageViewCounter, shoppingBrands)
+
+                try { //Try to set the background image to the imageView, if there isnt one then keep looping
+
+                    component.setImageResource( //Set the background image as the formatted file name
+                        resources.getIdentifier(
+                            filename,
+                            "drawable",
+                            packageName
+                        )
+                    )
+                } catch (e: Exception) {
+
+                }
+                imageViewCounter += 1
+            }
         }
+
+    }
+
+    /**
+     * Function to format the name of the brand to the format necessary to access the drawable resource
+     * to display an image
+     * @param counter - The index of the brand needing to be displayed on the imageview, In the hospitalitybrand Array
+     * @param shoppingBrands - The array of brands to access
+     * @return the lowercase, whitespace removed brandname, inline with the drawable naming format
+     */
+    private fun formatBrandName(counter : Int, shoppingBrands: Array<Array<String>>): String {
+
+        //Remove any spaces from the hospitality brand name
+        var brandName = shoppingBrands[counter][0].filter { !it.isWhitespace() }
+
+        //Make it lower case
+        return brandName.lowercase()
+
 
     }
 }

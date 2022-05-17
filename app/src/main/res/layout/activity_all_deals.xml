@@ -49,13 +49,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:layout_marginTop="24dp"
-                android:background="@color/teal_200"
                 android:contentDescription="@string/option_to_view_fitness_deals"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                app:srcCompat="@drawable/fitness" />
 
             <TextView
                 android:id="@+id/allDealsFitnessText"
@@ -63,7 +64,12 @@
                 android:layout_height="46dp"
                 android:text="@string/fitness_deals"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textStyle="bold"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="@+id/imageFitnessDeals"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -77,13 +83,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:layout_marginTop="24dp"
-                android:background="@color/teal_200"
                 android:contentDescription="@string/option_to_view_hospitality_deals"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageFitnessDeals"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                app:srcCompat="@drawable/hospitality" />
 
             <TextView
                 android:id="@+id/allDealsHospitalityText"
@@ -91,7 +98,12 @@
                 android:layout_height="52dp"
                 android:text="@string/hospitality_deals"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textStyle="bold"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="@+id/imageHospitalityDeals"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -105,13 +117,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:layout_marginTop="24dp"
-                android:background="@color/teal_200"
                 android:contentDescription="@string/option_to_view_shopping_deals"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageHospitalityDeals"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                app:srcCompat="@drawable/shopping" />
 
             <TextView
                 android:id="@+id/allDealsShoppingText"
@@ -119,7 +132,12 @@
                 android:layout_height="51dp"
                 android:text="@string/shopping_deals"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textStyle="bold"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="@+id/imageShoppingDeals"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -133,13 +151,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="136dp"
                 android:layout_marginTop="24dp"
-                android:background="@color/teal_200"
                 android:contentDescription="@string/option_to_view_technology_deals"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageShoppingDeals"
-                tools:ignore="ImageContrastCheck" />
+                tools:ignore="ImageContrastCheck"
+                app:srcCompat="@drawable/technology" />
 
             <TextView
                 android:id="@+id/allDealsTechnologyText"
@@ -147,7 +166,12 @@
                 android:layout_height="48dp"
                 android:text="@string/technology_deals"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textStyle="bold"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="2"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="@+id/imageTechnologyDeals"
                 app:layout_constraintEnd_toEndOf="parent"

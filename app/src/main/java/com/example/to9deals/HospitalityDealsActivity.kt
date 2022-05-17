@@ -1,6 +1,7 @@
 package com.example.to9deals
 
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.iterator
+import java.lang.Exception
 
 class HospitalityDealsActivity : AppCompatActivity() {
 
@@ -16,7 +18,7 @@ class HospitalityDealsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_hospitality_deals)
 
         val brandsTitles = findViewById<ConstraintLayout>(R.id.shoppingBrandsLayout)
-        val hospitalityBrands: Array<Array<String>> = arrayOf(arrayOf("Burger King", "Kurger Bing is one of the largest fast food chains in the world. With stores across every continent they continue to provide fast and tasty food to their customers. This code entitles you to a free large drink with any single burger."),
+        val hospitalityBrands: Array<Array<String>> = arrayOf(arrayOf("Burger King", "Burget King is one of the largest fast food chains in the world. With stores across every continent they continue to provide fast and tasty food to their customers. This code entitles you to a free large drink with any single burger."),
             arrayOf("Gordon Ramsay", "Gordon Ramsay is a famous celebrity chef, his high end michelin star restaurants being some of the most well known in the country. Use this code to enjoy a tasting experience for two. Quote your code on booking through the restaurant in order for it to be redeemed."),
             arrayOf("Pizza Express", "Bringing a dining table to life with great food, great music and great company. Lifting glasses and spirits. Getting smiles on faces and sauce on t-shirts. That's what Pizza Express is about. Use this code to get 30% off any large pizza!"),
             arrayOf("JD Wetherspoon", "The company aims to provide customers with good-quality food and drinks, served by well-trained and friendly staff, at reasonable prices. The pubs are individually designed, bringing you a fresh experience wherever you go! This code gets you 3 small plates for $10!"),
@@ -93,17 +95,55 @@ class HospitalityDealsActivity : AppCompatActivity() {
      */
     private fun loadBrandDetails(brandsTitles: ConstraintLayout, HospitalityBrands: Array<Array<String>>) {
 
-        var counter = 0
-
+        var textViewCounter = 0
+        var imageViewCounter = 0
         for (component in brandsTitles) {
 
             if (component is TextView) {
 
-                component.text = HospitalityBrands[counter][0] //Set the text value to what is stored in the array
-                counter += 1
+                component.text = HospitalityBrands[textViewCounter][0] //Set the text value to what is stored in the array
+                textViewCounter += 1
             }
 
+            if (component is ImageView) {
+
+                var filename = formatBrandName(imageViewCounter, HospitalityBrands)
+
+                try { //Try to set the background image to the imageView, if there isnt one then keep looping
+
+                    component.setImageResource( //Set the background image as the formatted file name
+                        resources.getIdentifier(
+                            filename,
+                            "drawable",
+                            packageName
+                        )
+                    )
+                } catch (e: Exception) {
+
+                }
+                imageViewCounter += 1
+            }
         }
 
     }
+
+    /**
+     * Function to format the name of the brand to the format necessary to access the drawable resource
+     * to display an image
+     * @param counter - The index of the brand needing to be displayed on the imageview, In the hospitalitybrand Array
+     * @param HospitalityBrands - The array of brands to access
+     * @return the lowercase, whitespace removed brandname, inline with the drawable naming format
+     */
+    private fun formatBrandName(counter : Int, HospitalityBrands: Array<Array<String>>): String {
+
+        //Remove any spaces from the hospitality brand name
+        var brandName = HospitalityBrands[counter][0].filter { !it.isWhitespace() }
+
+        //Make it lower case
+        return brandName.lowercase()
+
+
+    }
+
+
 }

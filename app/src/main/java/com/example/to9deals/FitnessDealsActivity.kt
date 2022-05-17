@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.iterator
+import java.lang.Exception
 
 class FitnessDealsActivity : AppCompatActivity() {
 
@@ -16,12 +17,11 @@ class FitnessDealsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_fitness_deals)
 
         val brandsTitles = findViewById<ConstraintLayout>(R.id.shoppingBrandsLayout)
-        val fitnessBrands: Array<Array<String>> = arrayOf(arrayOf("FreshGym", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
-            arrayOf("PureGym", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
-            arrayOf("GymLife", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
-            arrayOf("FitnessDudes", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"),
-            arrayOf("ExerciseU", "FreshGym is one of the leading gym groups in the world, with over 3000 locations in the UK alone. With this offer, you can get a free personal training class for each month of membership purchased! Click below to receive the code and then redeem it on their website!"))
-
+        val fitnessBrands: Array<Array<String>> = arrayOf(arrayOf("FreshGym", "Get hench at freshGym. Enjoy £0 signing on fee and your first month free! Whats your excuse now, punk? Get huge today at FreshGym"),
+            arrayOf("PureGym", "Passion and exercise for all. Join the adventure of a lifetime at Pure Gym. Enjoy our coupon for one free exercise class, valid Monday - Fridays"),
+            arrayOf("GymLife", "If Gym isn't your life, you're not wanted here. Love Boxing? how about MMA? Sign up today using the discount code to receive a whopping 25% our annual memberships"),
+            arrayOf("FitnessDudes", "Enjoy £15 off our 3-month membership plan when you use the discount code down below. With a fantastic range of gym equipment and in house spa, join us and let us help you become the best version of yourself. Sign up today!"),
+            arrayOf("ExerciseU", "Enjoy exercise? Looking for the gym community you deserve? Join ExerciseU today using the discount code below and receive a mystery welcome gift containing all the gym essentials you'll need to start your journey with us."))
 
         loadBrandDetails(brandsTitles, fitnessBrands)
         configureOnClickListeners(brandsTitles, fitnessBrands)
@@ -93,17 +93,53 @@ class FitnessDealsActivity : AppCompatActivity() {
      */
     private fun loadBrandDetails(brandsTitles: ConstraintLayout, fitnessBrands: Array<Array<String>>) {
 
-        var counter = 0
-
+        var textViewCounter = 0
+        var imageViewCounter = 0
         for (component in brandsTitles) {
 
             if (component is TextView) {
 
-                component.text = fitnessBrands[counter][0] //Set the text value to what is stored in the array
-                counter += 1
+                component.text = fitnessBrands[textViewCounter][0] //Set the text value to what is stored in the array
+                textViewCounter += 1
             }
 
+            if (component is ImageView) {
+
+                var filename = formatBrandName(imageViewCounter, fitnessBrands)
+
+                try { //Try to set the background image to the imageView, if there isnt one then keep looping
+
+                    component.setImageResource( //Set the background image as the formatted file name
+                        resources.getIdentifier(
+                            filename,
+                            "drawable",
+                            packageName
+                        )
+                    )
+                } catch (e: Exception) {
+
+                }
+                imageViewCounter += 1
+            }
         }
+
+    }
+
+    /**
+     * Function to format the name of the brand to the format necessary to access the drawable resource
+     * to display an image
+     * @param counter - The index of the brand needing to be displayed on the imageview, In the hospitalitybrand Array
+     * @param fitnessBrands - The array of brands to access
+     * @return the lowercase, whitespace removed brandname, inline with the drawable naming format
+     */
+    private fun formatBrandName(counter : Int, fitnessBrands: Array<Array<String>>): String {
+
+        //Remove any spaces from the hospitality brand name
+        var brandName = fitnessBrands[counter][0].filter { !it.isWhitespace() }
+
+        //Make it lower case
+        return brandName.lowercase()
+
 
     }
 }
